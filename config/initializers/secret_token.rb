@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Liftonomics::Application.config.secret_key_base = 'e5511ccf7cc55188822d350bd08ac812510eb8b4fd04ac8611699e3e6bac4987c2cf272e41c58a6f3973802e3f5ec463ade1f933fb5fec95c0f2a4588104fe6e'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Liftonomics::Application.config.secret_key_base = secure_token
