@@ -1,0 +1,55 @@
+<div class="container">
+  <%= content_tag :div, class: "signup" do %>
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :username, "Username" %>
+        <%= f.text_field :username %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :email, "Email" %>
+        <%= f.text_field :email %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :height_feet, "Height (Feet)" %>
+        <%= f.number_field :height_feet %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :height_inches, "Height (Inches)" %>
+        <%= f.number_field :height_inches %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :weight, "Weight" %>
+        <%= f.text_field :weight %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :level, "Fitness Level" %>
+        <%= f.select(:level, [[''],
+                             ['n00b'],
+                             ['Beginner'],
+                             ['Intermediate'],
+                             ['Advanced'],
+                             ['Arnold']]) %>
+        <!-- <%= f.text_field :level %> -->
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :goal, "Goal" %>
+        <%= f.select(:goal, [[''],
+                             ['Lose Weight'],
+                             ['Build Muscle'],
+                             ['Increase Strength']]) %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.submit "Sign Up" %>
+      <% end %>  
+    <% end %>
+  <% end %>
+</div>
