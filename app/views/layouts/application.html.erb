@@ -7,7 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <div class="nav">
+    <div class="inner-nav">
+      <% if signed_in? %>
+        <%= link_to "Sign Out", signout_path, method: :delete %>
+        <%= link_to "Account", edit_user_path(current_user) %>
+      <% else %>
+        <div id="login-div">
+          <a href="#" id="login">Login</a>
+          <%= render 'sessions/login' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+  <% end %>
 <%= yield %>
 
 </body>

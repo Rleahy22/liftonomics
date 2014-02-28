@@ -14,10 +14,47 @@
 
 body {
   background: #5DC8CD;
+  margin: 0;
+  font-family: Helvetica;
 }
 
 .container {
   width: 900px;
-  margin: auto;
-  font-family: Helvetica;
+  margin: 40px auto;
+}
+
+.nav {
+  height: 40px;
+  width: 100%;
+  background: black;
+  position: fixed;
+  top: 0;
+}
+
+.inner-nav {
+  width: 900px;
+  margin: 16px auto 0 auto;
+  height: 24px;
+  position: relative
+}
+
+.inner-nav a {
+  float: right;
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.login {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+}
+
+.alert {
+  width: 900px;
+  margin: 40px auto;
+  color: red;
+  font-weight: bolder;
 }
