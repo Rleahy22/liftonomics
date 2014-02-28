@@ -1,0 +1,18 @@
+<% provide(:title, @user.username) %>
+<div class="container">
+  <h1><%= @user.username %></h1>
+  <% case @user.level %>
+    <% when "n00b" %>
+      <%= image_tag("rogers.jpg", class: "profile-pic") %>
+    <% when "Beginner" %>
+      <%= image_tag("pegg.jpg", class: "profile-pic") %>
+    <% when "Intermediate" %>
+      <%= image_tag("pitt.jpg", class: "profile-pic") %>
+    <% when "Advanced" %>
+      <%= image_tag("The-Rock.jpeg", class: "profile-pic") %>
+    <% when "Arnold" %>
+      <%= image_tag("arnold.jpg", class: "profile-pic") %>
+  <% end %>
+  <h3>Height: <%= @user.height_feet %>' <%= @user.height_inches %>""</h3>
+  <h3>Weight: <%= @user.weight %> lbs</h3>
+</div>

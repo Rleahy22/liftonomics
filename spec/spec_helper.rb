@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'spork'
-#uncomment the following line to use spork with the debugger
-#require 'spork/ext/ruby-debug'
-
 Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
@@ -44,7 +39,12 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+    # Include the Capybara DSL so that specs in spec/requests still work.
     config.include Capybara::DSL
+    # Disable the old-style object.should syntax.
+    config.expect_with :rspec do |c|
+      c.syntax = :expect
+    end
   end
 end
 

@@ -1,0 +1,37 @@
+.signup {
+  width: 500px;
+  height: 200px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  background: #FFB473;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.user-field {
+  width: 400px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+  display: none;
+}
+
+.user-field * {
+  font-size: 28px;
+  font-family: Helvetica;
+  width: 360px;
+  margin: 20px;
+}
+
+.user-field label {
+  font-size: 32px;
+}
+
+.profile-pic {
+  height: 200px;
+  width: auto;
+  border: 2px solid silver;
+}
