@@ -46,5 +46,45 @@ describe "User pages" do
     it { should have_content(user.height_feet) }
     it { should have_content(user.height_inches) }
     it { should have_content(user.weight) }
+
+    describe "as different user" do
+      let(:other_user) { FactoryGirl.create(:user, username: "otheruser",
+                                            email: "other@me.com") }
+
+      before do
+        sign_in user
+        visit user_path(other_user)
+      end
+
+      it { should_not have_content("user.username") }
+    end
+  end
+
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+
+    describe "page" do
+      it { should have_content(user.username) }
+      it { should have_button("Save Changes") }
+    end
+
+    describe "with valid information" do
+      let(:new_username) { "NewUserName" }
+      let(:new_email) { "new@email.com" }
+      before do
+        fill_in "Username", with: new_username
+        fill_in "Email", with: new_email
+        fill_in "Password", with: user.password
+        fill_in "Confirm Password", with: user.password
+        click_button "Save Changes"
+      end
+
+      specify { expect(user.reload.username).to eq new_username }
+      specify { expect(user.reload.email).to eq new_email }
+    end
   end
 end
