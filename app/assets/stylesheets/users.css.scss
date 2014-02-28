@@ -11,6 +11,12 @@
   border-radius: 10px;
 }
 
+form {
+  background: #FFB473;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 .user-field {
   width: 400px;
   margin: auto;
@@ -21,7 +27,6 @@
 
 .user-field * {
   font-size: 28px;
-  font-family: Helvetica;
   width: 360px;
   margin: 20px;
 }
@@ -42,4 +47,19 @@ h1 {
 
 h3 {
   margin: 5px;
+}
+
+.edit_user {
+  width: 500px;
+  margin: auto;
+}
+
+.edit_user * {
+  display: block;
+  font-size: 20px;
+  width: 360px;
+  margin: 5px auto;
+}
+
+.edit_user label {
 }

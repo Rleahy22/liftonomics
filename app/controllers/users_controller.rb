@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :correct_user, only: [:edit, :update]
+
   def new
     if signed_in?
       @user = current_user
@@ -25,6 +27,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile Updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   private

@@ -1,0 +1,39 @@
+<% provide(:title, "#{@user.username} - Edit") %>
+<div class="container">
+  <h1><%= @user.username %></h1>
+  <% case @user.level %>
+    <% when "n00b" %>
+      <%= image_tag("rogers.jpg", class: "profile-pic") %>
+    <% when "Beginner" %>
+      <%= image_tag("pegg.jpg", class: "profile-pic") %>
+    <% when "Intermediate" %>
+      <%= image_tag("pitt.jpg", class: "profile-pic") %>
+    <% when "Advanced" %>
+      <%= image_tag("The-Rock.jpeg", class: "profile-pic") %>
+    <% when "Arnold" %>
+      <%= image_tag("arnold.jpg", class: "profile-pic") %>
+  <% end %>
+  <%= form_for @user do |f| %>
+    <%= f.label :username, "Username" %>
+    <%= f.text_field :username, placeholder: @user.username %>
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email, placeholder: @user.email %>
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation, "Confirm Password" %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.label :height_feet, "Height (Feet)" %>
+    <%= f.number_field :height_feet, placeholder: @user.height_feet %>
+    <%= f.label :height_inches, "Height (Inches)" %>
+    <%= f.number_field :height_inches, placeholder: @user.height_inches %>
+    <%= f.label :weight, "Weight" %>
+    <%= f.text_field :weight, placeholder: @user.weight %>
+    <%= f.label :max_bench, "Bench Max" %>
+    <%= f.number_field :max_bench, step: 2.5, placeholder: @user.max_bench %>
+    <%= f.label :max_squat, "Squat Max" %>
+    <%= f.number_field :max_squat, step: 2.5, placeholder: @user.max_squat %>
+    <%= f.label :max_deadlift, "Deadlift Max" %>
+    <%= f.number_field :max_deadlift, step: 2.5, placeholder: @user.max_deadlift %>
+    <%= f.submit "Save Changes" %>
+  <% end %>
+</div>

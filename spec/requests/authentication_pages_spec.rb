@@ -36,4 +36,45 @@ describe "AuthenticationPages" do
       end
     end
   end
+
+  describe "authorization" do
+    describe "for non-signed-in users" do
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "when attempting to visit a protected page" do
+        before do
+          visit edit_user_path(user)
+          fill_in "Username:",    with: user.username
+          fill_in "Password:", with: user.password
+          click_button "Login"
+        end
+
+        describe "after signing in" do
+          it "should render the desired protected page" do
+            expect(page).to have_content(user.username)
+          end
+        end
+      end
+
+      describe "in the Users controller" do
+
+        describe "visiting the edit page" do
+          before { visit edit_user_path(user) }
+          it { should_not have_content("Save Changes") }
+        end
+      end
+    end
+
+    describe "as wrong user" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@user.com", 
+                                                   username: "Wronguser") }
+      before { sign_in user }
+
+      describe "visiting Users#edit page" do
+        before { visit edit_user_path(wrong_user) }
+        it { should_not have_content('Save Changes') }
+      end
+    end
+  end
 end
