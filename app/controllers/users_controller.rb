@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Gym"
       redirect_to  @user
     else
-      redirect_to root
+      redirect_to root_path
     end
   end
 
