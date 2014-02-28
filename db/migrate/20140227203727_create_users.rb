@@ -8,6 +8,9 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :height_feet
       t.integer :height_inches
       t.integer :weight
+      t.integer :max_bench
+      t.integer :max_squat
+      t.integer :max_deadlift
       t.string :level
       t.string :goal
       

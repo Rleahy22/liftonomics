@@ -31,6 +31,18 @@
         <%= f.text_field :weight %>
       <% end %>
       <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :max_bench, "Bench Max" %>
+        <%= f.number_field :max_bench %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :max_squat, "Squat Max" %>
+        <%= f.number_field :max_squat %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
+        <%= f.label :max_deadlift, "Deadlift Max" %>
+        <%= f.number_field :max_deadlift %>
+      <% end %>
+      <%= content_tag :div, class: "user-field" do %>
         <%= f.label :level, "Fitness Level" %>
         <%= f.select(:level, [[''],
                              ['n00b'],

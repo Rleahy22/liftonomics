@@ -13,6 +13,21 @@
     <% when "Arnold" %>
       <%= image_tag("arnold.jpg", class: "profile-pic") %>
   <% end %>
-  <h3>Height: <%= @user.height_feet %>' <%= @user.height_inches %>""</h3>
+  <h3>Height: <%= @user.height_feet %>' <%= @user.height_inches %>"</h3>
   <h3>Weight: <%= @user.weight %> lbs</h3>
+  <% if @user.max_bench %>
+    <h3>Bench Max: <%= @user.max_bench %> lbs</h3>
+  <% else %>
+    <h3>Bench Max: N/A</h3>
+  <% end %>
+  <% if @user.max_squat %>
+    <h3>Squat Max: <%= @user.max_squat %> lbs</h3>
+  <% else %>
+    <h3>Squat Max: N/A</h3>
+  <% end %>
+  <% if @user.max_deadlift %>
+    <h3>Deadlift Max: <%= @user.max_deadlift %> lbs</h3>
+  <% else %>
+    <h3>Deadlift Max: N/A</h3>
+  <% end %>
 </div>
