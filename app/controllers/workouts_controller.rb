@@ -19,6 +19,25 @@ class WorkoutsController < ApplicationController
     @workout = current_user.workouts.find(params[:id])
   end
 
+  def edit
+    @user = current_user
+      @workout = current_user.workouts.find(params[:id])
+    if flash[:error]
+      flash[:error]
+    end
+  end
+
+  def update
+    @workout = current_user.workouts.find(params[:id])
+    if @workout.update_attributes(workout_params)
+      flash[:success] = "Workout Updated"
+      redirect_to user_workout_path(current_user, @workout)
+    else
+      flash[:error] = "Name cannot be blank"
+      redirect_to edit_user_workout_path(current_user, @workout)
+    end
+  end
+
   private
 
     def workout_params

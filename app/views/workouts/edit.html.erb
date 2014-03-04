@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Edit <%= @workout.name %></h1>
+  <%= form_for [@user, @workout] do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :name, "Workout Name" %>
+    <%= f.text_field :name, placeholder: @workout.name %>
+    <%= f.submit "Save Changes" %>
+  <% end %>
+</div>
