@@ -1,3 +1,21 @@
-// Place all the styles related to the workouts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.new_workout {
+  width: 400px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px; 
+  margin-left: -200px;
+}
+
+.new_workout * {
+  font-size: 22px;
+  width: 200px;
+  text-align: center;
+  margin: 20px auto;
+  display: block;
+}
+
+#workout-header {
+  width: 200px;
+}
