@@ -5,5 +5,6 @@
     <%= f.label :name, "Workout Name" %>
     <%= f.text_field :name, placeholder: @workout.name %>
     <%= f.submit "Save Changes" %>
+    <%= link_to "Delete Workout", user_workout_path(@user, @workout), method: :delete%>
   <% end %>
 </div>

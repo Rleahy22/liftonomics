@@ -49,5 +49,11 @@ describe "WorkoutPages" do
 
       it { should have_content("New Name") }
     end
+
+    describe "clicking delete" do
+      it "should delete the workout" do
+        expect { click_link("Delete Workout") }.to change(Workout, :count).by(-1)
+      end
+    end
   end
 end
