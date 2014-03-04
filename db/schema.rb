@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140304191811) do
   create_table "workouts", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.float    "one_month_gain"
-    t.float    "three_month_gain"
+    t.decimal  "one_month_gain"
+    t.decimal  "three_month_gain"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

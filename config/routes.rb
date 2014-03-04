@@ -1,5 +1,7 @@
 Liftonomics::Application.routes.draw do
-  resources :users
+  resources :users do
+    resources :workouts
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'users#new'
