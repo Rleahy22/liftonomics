@@ -59,6 +59,9 @@
                          placeholder: @user.max_deadlift,
                          class: "numerical" %>
     </div>
-    <%= f.submit "Save Changes" %>
+    <%= f.submit "Save Changes", id: "save-changes" %>
+    <%= link_to "Delete Account", @user, method: :delete, 
+                                         id: "delete-link",
+                                         data: { confirm: "Are you sure?" } %>
   <% end %>
 </div>

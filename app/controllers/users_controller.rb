@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def new
     if signed_in?
@@ -37,6 +37,12 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "Account Deleted"
+    redirect_to root_url
   end
 
   private

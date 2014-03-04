@@ -88,5 +88,13 @@ describe "User pages" do
       specify { expect(user.reload.email).to eq new_email }
       it { should have_content("200") }
     end
+
+    describe "clicking delete account" do
+      it "should delete the user's account" do
+        expect do
+          click_link('Delete Account')
+        end.to change(User, :count).by(-1)
+      end
+    end
   end
 end
