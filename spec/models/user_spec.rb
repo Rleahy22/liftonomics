@@ -135,4 +135,24 @@ end
     before { @user.weight = 800 }
     it { should_not be_valid }
   end
+
+  describe "workout associations" do
+    before { @user.save }
+    let!(:workout) do
+      FactoryGirl.create(:workout, user: @user)
+    end
+
+    it "should have associated workouts" do
+      expect(@user.workouts).to eq([workout])
+    end
+
+    it "should destroy associated workouts" do
+      workouts = @user.workouts.to_a
+      @user.destroy
+      expect(workouts).not_to be_empty
+      workouts.each do |workout|
+        expect(Workout.where(id: workout.id)).to be_empty
+      end
+    end
+  end
 end
