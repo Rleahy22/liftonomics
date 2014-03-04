@@ -22,18 +22,43 @@
     <%= f.password_field :password %>
     <%= f.label :password_confirmation, "Confirm Password" %>
     <%= f.password_field :password_confirmation %>
-    <%= f.label :height_feet, "Height (Feet)" %>
-    <%= f.number_field :height_feet, placeholder: @user.height_feet %>
-    <%= f.label :height_inches, "Height (Inches)" %>
-    <%= f.number_field :height_inches, placeholder: @user.height_inches %>
-    <%= f.label :weight, "Weight" %>
-    <%= f.text_field :weight, placeholder: @user.weight %>
-    <%= f.label :max_bench, "Bench Max" %>
-    <%= f.number_field :max_bench, step: 2.5, placeholder: @user.max_bench %>
-    <%= f.label :max_squat, "Squat Max" %>
-    <%= f.number_field :max_squat, step: 2.5, placeholder: @user.max_squat %>
-    <%= f.label :max_deadlift, "Deadlift Max" %>
-    <%= f.number_field :max_deadlift, step: 2.5, placeholder: @user.max_deadlift %>
+    <div id="edit-height">
+      <%= f.label :height_feet, "Height" %>
+      <%= f.number_field :height_feet, 
+                         placeholder: @user.height_feet,
+                         min: 3,
+                         max: 7,
+                         class: "numerical" %>
+      <p>Ft</p>
+      <!-- <%= f.label :height_inches, "Height (Inches)" %> -->
+      <%= f.number_field :height_inches,
+                         placeholder: @user.height_inches,
+                         min: 0,
+                         max: 11,
+                         class: "numerical" %>
+      <p>In</p>
+    </div>
+    <div id="edit-max">
+    <%= f.label :weight, "Weight", id: "weight-label" %>
+    <%= f.text_field :weight,
+                     placeholder: @user.weight,
+                     class: "numerical" %>
+      <%= f.label :max_bench, "Bench Max" %>
+      <%= f.number_field :max_bench,
+                         step: 2.5,
+                         placeholder: @user.max_bench,
+                         class: "numerical" %>
+      <%= f.label :max_squat, "Squat Max" %>
+      <%= f.number_field :max_squat,
+                         step: 2.5,
+                         placeholder: @user.max_squat,
+                         class: "numerical" %>
+      <%= f.label :max_deadlift, "Deadlift Max" %>
+      <%= f.number_field :max_deadlift,
+                         step: 2.5,
+                         placeholder: @user.max_deadlift,
+                         class: "numerical" %>
+    </div>
     <%= f.submit "Save Changes" %>
   <% end %>
 </div>

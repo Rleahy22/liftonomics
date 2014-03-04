@@ -61,5 +61,16 @@ h3 {
   margin: 5px auto;
 }
 
-.edit_user label {
+#edit-height * {
+  display: inline;
+  margin: 10px 5px 10px 0;
+}
+
+#edit-max * {
+  display: inline;
+  margin: 10px 5px 10px 0;
+}
+
+.numerical {
+  width: 50px;
 }

@@ -80,11 +80,13 @@ describe "User pages" do
         fill_in "Email", with: new_email
         fill_in "Password", with: user.password
         fill_in "Confirm Password", with: user.password
+        fill_in "Weight", with: 200
         click_button "Save Changes"
       end
 
       specify { expect(user.reload.username).to eq new_username }
       specify { expect(user.reload.email).to eq new_email }
+      it { should have_content("200") }
     end
   end
 end
