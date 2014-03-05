@@ -11,4 +11,5 @@ describe Week do
 
   it { should be_valid }
   it { should respond_to(:workout_id) }
+  it { should respond_to(:week_number) }
 end

@@ -6,8 +6,12 @@ class WorkoutsController < ApplicationController
   end
 
   def create
+    weeks = params[:number_weeks].to_i
     @workout = current_user.workouts.build(workout_params)
     if @workout.save
+      for x in 1..weeks
+        Week.create(workout_id: @workout.id, week_number: x)
+      end
       flash[:success] = "Workout Created"
       redirect_to user_workout_path(current_user, @workout)
     else

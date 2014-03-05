@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140305003110) do
 
   create_table "weeks", force: true do |t|
     t.integer  "workout_id"
+    t.integer  "week_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

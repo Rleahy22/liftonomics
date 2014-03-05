@@ -31,7 +31,7 @@ describe Workout do
 
   describe "week associations" do
     before { @workout.save }
-    let!(:week) { FactoryGirl.create(:week, workout: @workout) }
+    let!(:week) { FactoryGirl.create(:week, workout: @workout, week_number: 1) }
 
     it "should have associated weeks" do
       expect(@workout.weeks).to eq([week])

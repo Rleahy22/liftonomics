@@ -1,4 +1,7 @@
 <div class="container">
   <h1 id="workout-header"><%= @workout.name %></h1>
+  <% @workout.weeks.each do |week| %>
+    <h2>Week <%= week.week_number %></h2>
+  <% end %>
   <%= link_to "Edit Workout", edit_user_workout_path(@user, @workout) %>
 </div>

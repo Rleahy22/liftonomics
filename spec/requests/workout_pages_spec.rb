@@ -26,10 +26,21 @@ describe "WorkoutPages" do
   end
 
   describe "workout#show" do
-    before { visit user_workout_path(user, workout) }
+    before do
+      for x in 1..4
+        Week.create(workout_id: workout.id, week_number: x)
+      end
+      visit user_workout_path(user, workout)
+    end
 
     it { should have_content(workout.name) }
     it { should have_link("Edit Workout") }
+
+    describe "workout.weeks" do
+
+      it { should have_content("Week 1") }
+      it { should have_content("Week 4") }
+    end
   end
 
   describe "edit" do
