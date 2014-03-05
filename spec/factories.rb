@@ -19,6 +19,12 @@ FactoryGirl.define do
   end
 
   factory :week do
-    
+    week_number 1
+  end
+
+  factory :day do
+    name "Monday"
+    day_number 1
+    date "01/01/2014"
   end
 end

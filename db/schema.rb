@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305003110) do
+ActiveRecord::Schema.define(version: 20140305050035) do
+
+  create_table "days", force: true do |t|
+    t.integer  "week_id"
+    t.string   "name"
+    t.integer  "day_number"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "days", ["week_id", "created_at"], name: "index_days_on_week_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "username"
