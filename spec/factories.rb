@@ -17,4 +17,8 @@ FactoryGirl.define do
   factory :workout do
     name "split"
   end
+
+  factory :week do
+    
+  end
 end

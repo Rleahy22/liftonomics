@@ -28,4 +28,22 @@ describe Workout do
     before { @workout.name = "x" * 31 }
     it { should_not be_valid }
   end
+
+  describe "week associations" do
+    before { @workout.save }
+    let!(:week) { FactoryGirl.create(:week, workout: @workout) }
+
+    it "should have associated weeks" do
+      expect(@workout.weeks).to eq([week])
+    end
+
+    it "should destroy associated weeks" do
+      weeks = @workout.weeks.to_a
+      @workout.destroy
+      expect(weeks).not_to be_empty
+      weeks.each do |week|
+        expect(Week.where(id: week.id)).to be_empty
+      end
+    end
+  end
 end
