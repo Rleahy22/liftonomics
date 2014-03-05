@@ -18,7 +18,10 @@ describe "WorkoutPages" do
     end
 
     describe "with valid information" do
-      before { fill_in 'Workout Name', with: "March Workout" }
+      before do
+        fill_in 'Workout Name', with: "March Workout"
+        fill_in "Number of Weeks", with: "3"
+      end
       it "should create a workout" do
         expect { click_button("Create Workout") }.to change(Workout, :count).by(1)
       end

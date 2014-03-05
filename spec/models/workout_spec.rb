@@ -10,6 +10,7 @@ describe Workout do
   it { should be_valid }
 
   it {should respond_to(:name) }
+  it {should respond_to(:number_weeks) }
   it {should respond_to(:user_id) }
   it {should respond_to(:one_month_gain) }
   it {should respond_to(:three_month_gain) }

@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140305050035) do
 
   create_table "workouts", force: true do |t|
     t.string   "name"
+    t.integer  "number_weeks"
     t.integer  "user_id"
     t.decimal  "one_month_gain"
     t.decimal  "three_month_gain"
