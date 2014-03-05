@@ -1,7 +1,31 @@
 <div class="container">
   <h1 id="workout-header"><%= @workout.name %></h1>
   <% @workout.weeks.each do |week| %>
-    <h2>Week <%= week.week_number %></h2>
+    <div class="workout-week">
+      <h2 class="week-number">Week <%= week.week_number %></h2>
+      <h3 class="day-count"># of days</h3>
+      <% if week.days.empty? %>
+        <select class="day-select" data-weekid="<%= week.id %>">
+          <option value="">-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      <% else %>
+        <div id="week<%= week.week_number %>">
+          <% week.days.each do |day| %>
+            <div class="day">
+              <h3>Day <%= day.day_number %></h3>
+              <div class="lifts">
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
   <% end %>
   <%= link_to "Edit Workout", edit_user_workout_path(@user, @workout) %>
 </div>

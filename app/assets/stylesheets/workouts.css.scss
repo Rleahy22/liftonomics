@@ -19,3 +19,21 @@
 #workout-header {
   width: 200px;
 }
+
+.week-number, .day-count, .day-select{
+  display: inline;
+}
+
+.workout-week {
+  margin: 20px 0;
+  clear: both;
+}
+
+
+
+.day {
+  float: left;
+  margin: 10px 5px;
+  width: 215px;
+  height: 200px;
+}
