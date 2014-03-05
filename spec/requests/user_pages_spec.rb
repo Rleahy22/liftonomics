@@ -39,20 +39,31 @@ describe "User pages" do
   end
 
   describe "profile page" do
-    before { visit user_path(user) }
+    let!(:w1) { FactoryGirl.create(:workout, user: user) }
+    let!(:w2) { FactoryGirl.create(:workout, user: user, name: "March") }
+    before do
+      sign_in user
+      visit user_path(user)
+    end
 
     it { should have_content(user.username) }
     it { should have_title(user.username) }
     it { should have_content(user.height_feet) }
     it { should have_content(user.height_inches) }
     it { should have_content(user.weight) }
+    it { should have_link("Edit Profile") }
+    it { should have_link("Add Workout") }
+
+    describe "workouts" do
+      it { should have_link(w1.name) }
+      it { should have_link(w2.name) }
+    end
 
     describe "as different user" do
       let(:other_user) { FactoryGirl.create(:user, username: "otheruser",
                                             email: "other@me.com") }
 
       before do
-        sign_in user
         visit user_path(other_user)
       end
 

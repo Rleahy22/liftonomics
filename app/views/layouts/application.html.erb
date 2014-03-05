@@ -11,7 +11,7 @@
     <div class="inner-nav">
       <% if signed_in? %>
         <%= link_to "Sign Out", signout_path, method: :delete %>
-        <%= link_to "Account", edit_user_path(current_user) %>
+        <%= link_to current_user.username, user_path(current_user) %>
       <% else %>
         <div id="login-div">
           <a href="#" id="login">Login</a>

@@ -25,6 +25,13 @@ describe "WorkoutPages" do
     end
   end
 
+  describe "workout#show" do
+    before { visit user_workout_path(user, workout) }
+
+    it { should have_content(workout.name) }
+    it { should have_link("Edit Workout") }
+  end
+
   describe "edit" do
     before { visit edit_user_workout_path(user, workout)}
 

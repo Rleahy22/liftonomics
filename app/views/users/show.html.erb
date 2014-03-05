@@ -1,6 +1,9 @@
 <% provide(:title, @user.username) %>
 <div class="container">
-  <h1><%= @user.username %></h1>
+  <h1 id="profile-header"><%= @user.username %></h1>
+  <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_user_path(@user), id: "edit_user_link" %>
+  <% end %>
   <% case @user.level %>
     <% when "n00b" %>
       <%= image_tag("rogers.jpg", class: "profile-pic") %>
@@ -30,5 +33,11 @@
   <% else %>
     <h3>Deadlift Max: N/A</h3>
   <% end %>
-  <%= link_to "Add Workout", new_user_workout_path(@user.id) %>
+  <h3>Workouts:</h3>
+  <ul id="workout-list">
+    <% @user.workouts.each do |workout| %>
+      <li><%= link_to workout.name, user_workout_path(@user, workout) %></li>
+    <% end %>
+  </ul>
+  <%= link_to "Add Workout", new_user_workout_path(@user.id), id: "new-workout-link" %>
 </div>

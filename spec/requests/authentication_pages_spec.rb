@@ -27,7 +27,7 @@ describe "AuthenticationPages" do
 
       it { should have_link('Sign Out')}
       it { should have_selector('h1', text: user.username) }
-      it { should have_link('Account') }
+      it { should have_link(user.username) }
     
       describe "followed by signout" do
         before { click_link "Sign Out" }

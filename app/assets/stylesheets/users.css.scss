@@ -36,6 +36,7 @@ form {
   height: 200px;
   width: auto;
   border: 2px solid silver;
+  display: block;
 }
 
 h1 {
@@ -83,4 +84,28 @@ h3 {
   text-align: center;
   margin: 10px auto;
   color: black;
+}
+
+#profile-header {
+  display: inline
+}
+
+#workout-list {
+  list-style-type: none;
+}
+
+#workout-list a {
+  text-decoration: none;
+  color: #2F4F4F;
+  font-size: 20px;
+}
+
+#new-workout-link {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+#new-workout-link:hover {
+  color: #2F4F4F;
 }
