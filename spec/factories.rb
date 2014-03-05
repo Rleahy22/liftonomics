@@ -23,8 +23,7 @@ FactoryGirl.define do
   end
 
   factory :day do
-    name "Monday"
     day_number 1
-    date "01/01/2014"
+    date nil
   end
 end

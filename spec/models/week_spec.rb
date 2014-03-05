@@ -14,8 +14,8 @@ describe Week do
   it { should respond_to(:week_number) }
 
   describe "day associations" do
-    let!(:d1) { @week.days.build(name: "Monday", date: "01/01/2014") }
-    let!(:d2) { @week.days.build(name: "Wednesday", date: "03/01/2014") }
+    let!(:d1) { @week.days.build(day_number: 1) }
+    let!(:d2) { @week.days.build(day_number: 2) }
 
     it "should have associated days" do
       expect(@week.days).to eq([d1, d2])

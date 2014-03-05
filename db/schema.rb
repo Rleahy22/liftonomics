@@ -15,9 +15,8 @@ ActiveRecord::Schema.define(version: 20140305050035) do
 
   create_table "days", force: true do |t|
     t.integer  "week_id"
-    t.string   "name"
     t.integer  "day_number"
-    t.date     "date"
+    t.date     "date_completed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
