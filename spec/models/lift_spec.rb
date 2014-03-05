@@ -30,4 +30,21 @@ describe Lift do
   it { should respond_to(:instructions_six) }
   it { should respond_to(:instructions_seven) }
 
+  describe "when name is not present" do
+    before { @lift.name = '' }
+
+    it { should_not be_valid }
+  end
+
+  describe "when primary_muscle is not present" do
+    before { @lift.primary_muscle = '' }
+
+    it { should_not be_valid }
+  end
+
+  describe "when instructions_one is not present" do
+    before { @lift.instructions_one = '' }
+
+    it { should_not be_valid }
+  end
 end
