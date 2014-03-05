@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140305050035) do
+ActiveRecord::Schema.define(version: 20140305224451) do
 
   create_table "days", force: true do |t|
     t.integer  "week_id"
@@ -22,6 +22,23 @@ ActiveRecord::Schema.define(version: 20140305050035) do
   end
 
   add_index "days", ["week_id", "created_at"], name: "index_days_on_week_id_and_created_at"
+
+  create_table "lifts", force: true do |t|
+    t.string   "name"
+    t.string   "upper_lower"
+    t.string   "primary_muscle"
+    t.string   "secondary_muscle"
+    t.string   "push_pull"
+    t.string   "instructions_one"
+    t.string   "instructions_two"
+    t.string   "instructions_three"
+    t.string   "instructions_four"
+    t.string   "instructions_five"
+    t.string   "instructions_six"
+    t.string   "instructions_seven"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username"
