@@ -34,7 +34,7 @@
 .day {
   float: left;
   margin: 10px 5px;
-  width: 215px;
+  width: 290px;
   height: 200px;
 }
 
@@ -48,9 +48,14 @@
   width: 150px;
   border: 1px solid grey;
   margin: 0 0 0 2px;
-  padding: 0
+  padding: 0;
 }
 
 .results li {
   width: 150px;
+}
+
+.result:hover {
+  background: grey;
+  cursor: pointer;
 }

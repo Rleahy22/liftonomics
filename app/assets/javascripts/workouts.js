@@ -35,8 +35,12 @@ $('document').ready(function() {
       {search: query},
       function(data) {
         console.log(data);
-        for (var i in data) {
-          $('#result' + (parseInt(i) + 1)).text(data[i].name);
+        for (var i = 0; i < 5; i++) {
+          if (data[i] === undefined) {
+            $('#result' + (parseInt(i) + 1)).text('');
+          } else {
+            $('#result' + (parseInt(i) + 1)).text(data[i].name);
+          }
         }
       }
     );
@@ -51,8 +55,10 @@ $('document').ready(function() {
   });
 
   $('.add-lift').on('click', function(e) {
+    console.log("YO");
     e.preventDefault();
     $(this).parent().append(newLiftElement);
+    $(this).parent().append($(this));
   });
 
   $('.lifts').on('focus', '.lift-search', function() {
@@ -70,6 +76,8 @@ $('document').ready(function() {
     var liftForm = $(this).parent().parent();
     var liftDiv = liftForm.parent();
     liftForm.remove()
+
     liftDiv.append('<h3>' + newLift + '</h3>');
+
   });
 });
