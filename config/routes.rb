@@ -7,6 +7,7 @@ Liftonomics::Application.routes.draw do
     resources :days, only: [:create, :update, :destroy]
   end
 
+  resources :lifts, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'users#new'
